@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import Logo from '../components/Logo'
+import { Menu, X } from "lucide-react";
+import ButFirstCoffeeLogo from '../assets/butfirstcoffee-logo-stacked.png'
 
 
 const Header = () => {
@@ -61,7 +62,7 @@ const Header = () => {
 			<div className="flex justify-between md:justify-around items-center h-16 px-5">
 				<div>
 					<Link to="/" reloadDocument>
-						<Logo />
+						<img src={ButFirstCoffeeLogo} alt="ButFirstCofee-Logo" className="w-6 h-6 object-cover" />
 					</Link>
 				</div>
 
@@ -82,21 +83,6 @@ const Header = () => {
 							{section.charAt(0).toUpperCase() + section.slice(1)}
 						</HashLink>
 					))}
-
-					<div className="flex justify-center items-center gap-4 border-l border-gray-400 pl-4">
-						<a href="https://github.com/rastynkhen18" target="_blank" rel="noopener noreferrer">
-							<DarkModeIcon src={GithubIcon} alt="Github" className="w-5 h-5" />
-						</a>
-						<a
-							href="https://x.com/rastynkhen_18"
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label="Twitter"
-						>
-							<DarkModeIcon src={TwitterXIcon} alt="Twitter/X" className="w-5 h-5" />
-						</a>
-						<DarkModeToggle />
-					</div>
 				</nav>
 
 				{/* Burger Icon */}
@@ -148,20 +134,6 @@ const Header = () => {
 						{section.charAt(0).toUpperCase() + section.slice(1)}
 					</HashLink>
 				))}
-				<div className="flex justify-center items-center gap-4">
-					<a href="https://github.com/rastynkhen18" target="_blank" rel="noopener noreferrer">
-						<DarkModeIcon src={GithubIcon} alt="Github" className="w-5 h-5" />
-					</a>
-					<a
-						href="https://x.com/rastynkhen_18"
-						target="_blank"
-						rel="noopener noreferrer"
-						aria-label="Twitter"
-					>
-						<DarkModeIcon src={TwitterXIcon} alt="Twitter/X" className="w-5 h-5" />
-					</a>
-					<DarkModeToggle />
-				</div>
 			</div>
 		</header>
 	);

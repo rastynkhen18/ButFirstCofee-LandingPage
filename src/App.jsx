@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Header from './components/Header';
+import Header from './components/Header';
 import Slideshow from './components/Slideshow'
 
 
@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div>
       <Router>
+        <Header />
         <Slideshow />
       </Router >
     </div>

@@ -78,9 +78,9 @@ const Slideshow = () => {
   }, [isAutoPlay, currentSlide]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
+  <div className="w-full rounded-lg overflow-hidden mt-0 pt-0">
       {/* Main slide container */}
-      <div className="relative h-96 md:h-[500px] overflow-hidden">
+      <div className="w-full h-full relative" style={{ height: "auto", minHeight: "300px", maxHeight: "500px", margin: 0, padding: 0 }}>
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -92,7 +92,8 @@ const Slideshow = () => {
             <img
               src={slide.image || "/placeholder.svg"}
               alt={slide.alt}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain md:object-fill"
+              style={{ height: "100%" }}
             />
           </div>
         ))}
@@ -100,7 +101,7 @@ const Slideshow = () => {
         {/* Navigation arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 backdrop-blur-sm"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 cursor-pointer"
           aria-label="Previous slide"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,7 +111,7 @@ const Slideshow = () => {
 
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 backdrop-blur-sm"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 cursor-pointer"
           aria-label="Next slide"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,58 +119,21 @@ const Slideshow = () => {
           </svg>
         </button>
 
-        {/* Slide counter */}
-        <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-          {currentSlide + 1} / {slides.length}
-        </div>
-      </div>
-
-      {/* Bottom controls */}
-      <div className="bg-gray-800 p-4 flex items-center justify-between">
         {/* Dot indicators */}
-        <div className="flex space-x-2">
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center items-center gap-2 space-x-2 z-10">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-200 ${
+              className={`w-3 h-3 rounded-full transition-all duration-200 cursor-pointer ${
                 index === currentSlide 
-                  ? 'bg-blue-500 scale-110' 
-                  : 'bg-gray-500 hover:bg-gray-400'
+                  ? 'bg-[#d4af37] scale-110' 
+                  : 'bg-white/50 hover:bg-white/70'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
-
-        {/* Auto-play toggle */}
-        <button
-          onClick={toggleAutoPlay}
-          className={`flex items-center space-x-2 px-3 py-1 rounded-full text-sm transition-all duration-200 ${
-            isAutoPlay 
-              ? 'bg-green-600 hover:bg-green-700 text-white' 
-              : 'bg-gray-600 hover:bg-gray-500 text-gray-200'
-          }`}
-        >
-          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            {isAutoPlay ? (
-              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-            ) : (
-              <path d="M8 5v14l11-7z" />
-            )}
-          </svg>
-          <span>{isAutoPlay ? 'Pause' : 'Play'}</span>
-        </button>
-      </div>
-
-      {/* Progress bar */}
-      <div className="h-1 bg-gray-700">
-        <div 
-          className="h-full bg-blue-500 transition-all duration-100 ease-linear"
-          style={{ 
-            width: `${((currentSlide + 1) / slides.length) * 100}%` 
-          }}
-        />
       </div>
     </div>
   );
