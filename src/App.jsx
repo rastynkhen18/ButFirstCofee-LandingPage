@@ -2,6 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Slideshow from './components/Slideshow'
+import FeaturedProducts from './components/FeaturedProducts'
+import Footer from './components/Footer'
 
 
 
@@ -10,7 +12,11 @@ const App = () => {
     <div>
       <Router>
         <Header />
-        <Slideshow />
+        <main>
+          <Slideshow />
+          <FeaturedProducts />
+        </main>
+        <Footer />
       </Router >
     </div>
   )

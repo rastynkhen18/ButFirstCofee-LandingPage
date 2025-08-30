@@ -78,9 +78,9 @@ const Slideshow = () => {
   }, [isAutoPlay, currentSlide]);
 
   return (
-  <div className="w-full rounded-lg overflow-hidden mt-0 pt-0">
+    <div className="mt-16 overflow-hidden h-[50vh] md:h-[70vh] z-10">
       {/* Main slide container */}
-      <div className="w-full h-full relative" style={{ height: "auto", minHeight: "300px", maxHeight: "500px", margin: 0, padding: 0 }}>
+      <div className="w-full h-full overflow-hidden relative">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -92,8 +92,7 @@ const Slideshow = () => {
             <img
               src={slide.image || "/placeholder.svg"}
               alt={slide.alt}
-              className="w-full h-full object-contain md:object-fill"
-              style={{ height: "100%" }}
+              className="w-full h-full object-fill"
             />
           </div>
         ))}
@@ -101,26 +100,26 @@ const Slideshow = () => {
         {/* Navigation arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 cursor-pointer"
+          className="absolute left-0 top-1/2 -translate-y-1/2 text-white hover:text-[var(--primary-color)] p-2 rounded-full transition-all duration-200 cursor-pointer"
           aria-label="Previous slide"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 cursor-pointer"
+          className="absolute right-0 top-1/2 -translate-y-1/2 text-white hover:text-[var(--primary-color)] p-2 rounded-full transition-all duration-200 cursor-pointer"
           aria-label="Next slide"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
 
         {/* Dot indicators */}
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center items-center gap-2 space-x-2 z-10">
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center items-center gap-1 space-x-2 z-10">
           {slides.map((_, index) => (
             <button
               key={index}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { Menu, X } from "lucide-react";
-import ButFirstCoffeeLogo from '../assets/butfirstcoffee-logo-stacked.png'
+import ButFirstCoffeeLogo from '../assets/butfirstcoffee-logo.png'
 
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
 	const [scrolled, setScrolled] = useState(false);
 	const [activeSection, setActiveSection] = useState("home"); // NEW: track active section
 	const mobileMenuRef = useRef(null);
-	const sections = ["home", "about", "skills", "projects", "contact"];
+	const sections = ["home", "products", "about", "contact"];
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -56,13 +56,16 @@ const Header = () => {
 		<header
 			className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled
 				? "bg-[var(--background-color)] text-[var(--text-color)] shadow-md"
-				: "text-[var(--text-color)]"
+				: "bg-[var(--background-color)] text-[var(--text-color)]"
 				}`}
 		>
-			<div className="flex justify-between md:justify-around items-center h-16 px-5">
+			<div className="flex justify-between md:justify-around items-center px-8 py-4 h-16">
 				<div>
 					<Link to="/" reloadDocument>
-						<img src={ButFirstCoffeeLogo} alt="ButFirstCofee-Logo" className="w-6 h-6 object-cover" />
+						<div className="flex justify-center items-center">
+							<img src={ButFirstCoffeeLogo} alt="ButFirstCoffee-Logo" className="w-14 h-auto object-cover" />
+							<h1 className="text-[var(--primary-color)] font-bold">BUT FIRST, COFFEE</h1>
+						</div>
 					</Link>
 				</div>
 
@@ -113,9 +116,9 @@ const Header = () => {
 			<div
 				ref={mobileMenuRef}
 				className={`absolute z-40 top-16 left-0 w-full ${scrolled
-					? "bg-[var(--container-color)] text-[var(--text-color)]"
-					: "bg-[var(--container-color)] text-[var(--text-color)]"
-					} flex flex-col items-center gap-6 px-10 py-5 transition-all duration-300 md:hidden ${isOpen
+					? "bg-[var(--card-color)] text-[var(--text-color)]"
+					: "bg-[var(--card-color)] text-[var(--text-color)]"
+					} flex flex-col justify-start items-center gap-6 px-10 py-5 text-base transition-all duration-300 md:hidden ${isOpen
 						? "translate-x-0 opacity-100"
 						: "-translate-x-[-130%] opacity-0 pointer-events-none"
 					} ${scrolled

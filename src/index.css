@@ -2,8 +2,7 @@
 
 :root {
   --primary-color: #d4af37;
-  --bg-color: #121212;
-  --text-color: #eee;
+  --background-color: #121212;
   --card-bg: #242424;
   --border-color: #363636;
   --text-color: #FaFaFa;
@@ -12,23 +11,15 @@
 
 :root.dark {
   --primary-color: #d4af37;
-  --bg-color: #121212;
-  --text-color: #eee;
+  --background-color: #121212;
   --card-bg: #242424;
   --border-color: #363636;
   --text-color: #FaFaFa;
   --text-gray: #818181;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
 body {
-  background-color: var(--bg-color);
+  background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
   font-family: system-ui, sans-serif;

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>But First Coffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #5E3023;
+            --secondary-color: #8B5A2B;
+            --text-color: #333333;
+            --background-color: #FFF8F0;
+            --text-gray: #4A4A4A;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--primary-color)',
+                        secondary: 'var(--secondary-color)',
+                        background: 'var(--background-color)'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[var(--background-color)]">
+    <header class="fixed top-0 z-50 w-full transition-all duration-300 bg-[var(--background-color)] text-[var(--text-color)] shadow-md">
+        <div class="flex justify-between items-center px-8 py-4">
+            <div>
+                <a href="/">
+                    <img src="../assets/butfirstcoffee-logo-stacked.png" alt="ButFirstCofee-Logo" class="w-36 h-auto object-cover" />
+                </a>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex justify-center items-center gap-10 text-[var(--text-color)]">
+                <a href="#home" class="pb-1 transition-all duration-300 border-b-2 border-[var(--primary-color)]">Home</a>
+                <a href="#products" class="pb-1 transition-all duration-300 border-b-2 border-transparent">Products</a>
+                <a href="#about" class="pb-1 transition-all duration-300 border-b-2 border-transparent">About</a>
+                <a href="#contact" class="pb-1 transition-all duration-300 border-b-2 border-transparent">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button class="text-[var(--text-gray)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section id="home" class="container mx-auto px-4 py-12">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-4">But First Coffee</h1>
+                    <p class="text-lg text-[var(--text-gray)] mb-6">Your premium coffee experience awaits.</p>
+                    <button class="bg-[var(--primary-color)] text-white px-6 py-2 rounded-md hover:bg-[var(--secondary-color)] transition-colors">
+                        View Products
+                    </button>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <img src="../assets/images/slideshowImages/img1.png" alt="Coffee" class="w-full h-auto rounded-lg shadow-lg" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Teaser -->
+        <section id="products" class="bg-white py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-[var(--primary-color)] mb-8">Our Products</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Sample Product Cards -->
+                    <div class="bg-[var(--background-color)] p-4 rounded-lg shadow-md">
+                        <img src="../assets/images/productsImages/Espresso Based/Cafe Latte (Iced) - P155.jpg" alt="Cafe Latte" class="w-full h-48 object-cover rounded-md mb-4" />
+                        <h3 class="text-xl font-semibold text-[var(--primary-color)]">Cafe Latte (Iced)</h3>
+                        <p class="text-[var(--text-gray)]">₱155.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--primary-color)] text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-semibold mb-2">But First Coffee</h3>
+                    <p>Your premium coffee experience</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-2">Contact Us</h4>
+                    <p>Email: info@butfirstcoffee.com</p>
+                    <p>Phone: +63 123 456 7890</p>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p>&copy; 2025 But First Coffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
